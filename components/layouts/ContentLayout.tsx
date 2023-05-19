@@ -10,7 +10,7 @@ export const ContentLayout: React.FC<PropsWithChildren> = ({ children }: PropsWi
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen bg-green-400">{children}</main>
+      <main className="h-full min-h-screen bg-green-400">{children}</main>
     </>
   );
 };

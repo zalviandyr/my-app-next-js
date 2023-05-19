@@ -1,8 +1,11 @@
 import { TableLowcode } from "alurkerja-ui";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 const CrudIndex: NextPage = () => {
+  const router = useRouter();
+
   // for refetching
   const [renderState, setRenderState] = useState(0);
   // for pagination
@@ -13,7 +16,9 @@ const CrudIndex: NextPage = () => {
   const [filterBy, setFilterBy] = useState<{ [x: string]: any }>();
 
   const baseUrl = "https://kpm-sys.merapi.javan.id";
-  const tableName = "jpn";
+  const tableName = "pengurusan-rekod-aktiviti-pemohon";
+
+  const toCreatePage = () => router.push("/crud/create");
 
   return (
     <div className="p-10">
@@ -35,6 +40,7 @@ const CrudIndex: NextPage = () => {
             return defaultCell;
           }
         }}
+        onClickCreate={toCreatePage}
       />
     </div>
   );
